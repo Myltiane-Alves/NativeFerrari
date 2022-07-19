@@ -1,0 +1,55 @@
+export const space = 20;
+export const borderRadius = space / 4;
+
+export const vars = {
+  white: '#ffffff',
+  black: '#000000',
+  blackHover: '#111111',
+  blackActive: '#222222',
+  black10: '#0000001a',
+  black75: '#000000bf',
+  dark0: '#333333',
+  dark1: '#000000bf',
+  gray: '#79756c',
+  gray0: '#707070',
+  gray1: '#7e7e7e',
+  gray2: '#9a9a99',
+  gray3: '#cccccc',
+  gray4: '#00000029',
+  gray5: '#e5e3dfbf',
+  gray6: '#f8f8f8',
+  gray7: '#e5e3df',
+  gray8: '#dddddd',
+  gray9: '#999999',
+  gray10: '#eeeeee',
+  gray11: '#444444',
+  gray12: '#e8e8e8',
+  red: '#e32119',
+  redHover: '#e4423b',
+  redActive: '#c91d16',
+  green: '#00994d',
+  greenHover: '#00be60',
+  greenActive: '#00773c',
+  blue: '#00a0e6',
+  blueHover: '#1cabe9',
+  blueActive: '#199bd4',
+  yellow: '#ffc107',
+  yellowHover: '#e0a800',
+  yellowActive: '#d39e00',
+
+  space,
+  spacePx: `${space}px`,
+
+  borderRadius,
+  borderRadiusPx: `${borderRadius}px`,
+
+  successColor: '#155724',
+  successBg: '#d4edda',
+  successBorder: '#c3e6cb',
+
+  dangerColor: '#721c24',
+  dangerBg: '#f8d7da',
+  dangerBorder: '#f5c6cb',
+
+  baseURL: `https://ferrari-api.hcodelab.com.br`,
+};
