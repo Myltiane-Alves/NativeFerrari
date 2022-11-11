@@ -1,21 +1,34 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-
+import { Gallery } from '../../components/Gallery';
+import { Header } from '../../components/Header';
+import { HomeBanner } from '../../components/HomeBanner';
+import { Layout } from '../../providers/Layout';
+import ferrariAmarela from '../../assets/ferrari-amarela.png';
+import ferrariAzul from '../../assets/ferrari-azul.png';
+import ferrariInterior from '../../assets/ferrari-interior.png';
 export const HomeScreen = ()=> {
     return (
-        <View style={styles.container}>
-            <Text>Home Screen</Text>
-            <StatusBar style="auto" />
-        </View>
+        <Layout header={<Header />} >
+            <HomeBanner />
+            <Gallery
+                items={[
+                    {
+                        image: ferrariAmarela,
+                        title: 'Esportivas',
+                        subtitle: 'FerrariF1000',
+                    },
+                    {
+                        image: ferrariInterior,
+                        title: 'Esportivas',
+                        subtitle: 'FerrariF1000',
+                    },
+                    {
+                        image: ferrariAzul,
+                        title: 'Esportivas',
+                        subtitle: 'FerrariF1000',
+                    },
+                ]}
+            />
+        </Layout>
     )
 }
 
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-  });
-  

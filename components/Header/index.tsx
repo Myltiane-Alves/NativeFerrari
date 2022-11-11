@@ -16,6 +16,7 @@ import { Screen } from '../../screens';
 export const Header = ({ onPressBack }: HeaderProps) => {
   const navigation = useDrawerNavigation();
 
+ 
   return (
     <Fragment>
       <HeaderWrap>

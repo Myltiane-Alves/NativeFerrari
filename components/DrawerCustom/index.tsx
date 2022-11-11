@@ -5,7 +5,7 @@ import logo from '../../assets/ferrari-logo.png';
 import { LogoWrap } from './LogoWrap';
 import { MaterialIcons } from '@expo/vector-icons';
 import { DrawerHeader } from './DrawerHeader';
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import { vars } from '../../values';
 // import { Button } from '../Button';
 import photo from '../../assets/no-photo.jpg';
@@ -20,9 +20,10 @@ import { UserEmail } from './UserEmail';
 // import { useAuth } from '../../hooks/useAuth';
 import { UserPhoto } from './UserPhoto';
 import { getPhotoURL } from './getPhotoURL';
+import { Button } from '../Button';
 
 export const DrawerCustom = (props) => {
-  // const { user, isLogged, logout } = useAuth();
+  const [isLogged, setIsLogged]   = useState();
 
   return (
     <DrawerContentScrollView
@@ -53,7 +54,7 @@ export const DrawerCustom = (props) => {
             labelStyle={styles.drawerItemLabel}
           />
         </DrawerMenu>
-     
+        {isLogged && (
           <Fragment>
             
             <DrawerMenu>
@@ -79,11 +80,29 @@ export const DrawerCustom = (props) => {
               />
             </DrawerMenu>
           </Fragment>
-   
+        )}
       </ScrollView>
       <DrawerFooter>
-    
-        
+        {!isLogged && (
+          
+          <Button color="green" style={{ width: 240}} >
+              Minha Conta
+            </Button>
+        )} 
+        {isLogged && (
+          <UserWrap>
+
+            <Image source={photo}/>
+            <UserInfo>
+              <UserName>Myltiane Alves</UserName>
+              <UserEmail>myltiane.axu@gmail.com</UserEmail>
+            </UserInfo>
+            <TouchableOpacity>
+                <MaterialIcons name="logout" size={24} color={vars.dark0} />
+            </TouchableOpacity>
+          </UserWrap>
+        )}
+          
       </DrawerFooter>
     </DrawerContentScrollView>
   );

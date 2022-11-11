@@ -1,21 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text} from 'react-native';
+import { Screen } from '..';
+import { Header } from '../../components/Header';
+import { Layout } from '../../providers/Layout';
 
-export const ServicesScreen = ()=> {
+export const ServicesScreen = (props)=> {
     return (
-        <View style={styles.container}>
+        <Layout
+            header={
+                <Header onPressBack={() => props.navigation.navigate(Screen.Home)} />
+            }
+        >
             <Text>Services Screen</Text>
-            <StatusBar style="auto" />
-        </View>
+           
+        </Layout>
     )
 }
 
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-  });
   

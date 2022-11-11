@@ -5,5 +5,6 @@ export const HeaderLogo = styled.TouchableOpacity`
   position: absolute;
   align-items: center;
   align-self: center;
-  padding-top: ${vars.spacePx};
+  /* padding-top: ${vars.spacePx}; */
+  padding-top: 30px; 
 `;
