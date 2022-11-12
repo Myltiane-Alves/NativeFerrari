@@ -1,4 +1,4 @@
 export type LayoutContextType = {
-    // toUp: () => void;
+    toUp: () => void;
   };
   

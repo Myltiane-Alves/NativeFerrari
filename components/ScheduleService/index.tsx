@@ -1,4 +1,5 @@
-import { useDrawerNavigation } from "../../hooks/useDrawerNavigation"
+import { useDrawerNavigation } from "../../hooks/useDrawerNavigation";
+import { Screen } from "../../screens";
 import { Button } from "../Button";
 import { ScheduleServiceBody } from "./ScheduleServiceBody";
 import { ScheduleServiceIcon } from "./ScheduleServiceIcon";
@@ -10,8 +11,10 @@ import servicesBackground from '../../assets/services-bg.png'
 import { CreditCardsSvg } from "./CreditCardsSvg";
 import { ToolsSvg } from "./ToolsSvg";
 import { CalendarSvg } from "./CalendarSvg";
+
 export const ScheduleService = () => {
     const navigation = useDrawerNavigation();
+    
 
     return (
         <ScheduleServiceWrap>
@@ -34,7 +37,7 @@ export const ScheduleService = () => {
                 </ScheduleServiceIcon>
                 <Button
                     color="green"
-                // onPress={() => navigation.navigate()}
+                    onPress={() => navigation.navigate(Screen.ScheduleNew)}
                 >
                     Agenar Serviço
                 </Button>

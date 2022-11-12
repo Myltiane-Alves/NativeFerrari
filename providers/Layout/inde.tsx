@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
-import { ReactNode } from 'react';
+import { ReactNode, useRef } from 'react';
+import { ScrollView } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import styled from 'styled-components/native';
 import { Header } from '../../components/Header';
@@ -17,9 +18,17 @@ const LayoutContent = styled.View`
 `;
 
 export const Layout = ({ children, header }: LayoutProviderProps) => {
+    const scrollRef = useRef<ScrollView>(null)
+    const toUp = () => {
+        scrollRef.current?.scrollTo({
+            y: 0,
+            animated: true,
+        })
+    }
+
     return ( 
-        <LayoutContext.Provider value={{}}>
-            <LayoutScrollView>
+        <LayoutContext.Provider value={{ toUp }}>
+            <LayoutScrollView ref={scrollRef as any}>
                 <SafeAreaView style={{ backgroundColor: vars.white}}>
                    <LayoutContent>
                      {children}

@@ -24,7 +24,7 @@ export const Footer = () => {
         <ArrowUpSvg />
       </FooterButtonUp>
       <FooterTitle>Contato</FooterTitle>
-      <FooterText>E-mail: support@ferrari.it</FooterText>
+      <FooterText>E-mail: myltiane.aux@gmail.com</FooterText>
       <FooterIcons>
         <FooterIcon
           onPress={() => Linking.openURL('https://www.facebook.com/Ferrari/')}
@@ -54,7 +54,7 @@ export const Footer = () => {
       <FooterFerrariLogo>
         <LogoFerrariGray />
       </FooterFerrariLogo>
-      <FooterCopyright>2020 © Hcode. All rights reserved.</FooterCopyright>
+      <FooterCopyright>2022 ©   Myltiane Alves. All rights reserved.</FooterCopyright>
     </FooterWrap>
   );
 };

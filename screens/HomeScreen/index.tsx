@@ -5,6 +5,8 @@ import { Layout } from '../../providers/Layout';
 import ferrariAmarela from '../../assets/ferrari-amarela.png';
 import ferrariAzul from '../../assets/ferrari-azul.png';
 import ferrariInterior from '../../assets/ferrari-interior.png';
+import { Contact } from '../../components/Contact';
+import { Footer } from '../../components/Footer';
 export const HomeScreen = ()=> {
     return (
         <Layout header={<Header />} >
@@ -28,6 +30,8 @@ export const HomeScreen = ()=> {
                     },
                 ]}
             />
+            <Contact />
+            <Footer />
         </Layout>
     )
 }
