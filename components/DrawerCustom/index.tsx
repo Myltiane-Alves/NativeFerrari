@@ -21,6 +21,7 @@ import { UserEmail } from './UserEmail';
 import { UserPhoto } from './UserPhoto';
 import { getPhotoURL } from './getPhotoURL';
 import { Button } from '../Button';
+import Navigation from '../../navigation';
 
 export const DrawerCustom = (props) => {
   const [isLogged, setIsLogged]   = useState();
@@ -85,7 +86,10 @@ export const DrawerCustom = (props) => {
       <DrawerFooter>
         {!isLogged && (
           
-          <Button color="green" style={{ width: 240}} >
+          <Button 
+            color="green" 
+            style={{ width: 240}} 
+            onPress={() => props.navigation.navigate(Screen.Auth)}>
               Minha Conta
             </Button>
         )} 
