@@ -1,12 +1,11 @@
-import { createStackNavigator } from '@react-navigation/stack';
-import { Text } from 'react-native';
-import { Screens } from ".."
+import { AuthLayout } from '../../components/Auth';
+import { AuthFormEmail } from '../../components/Auth/AuthFormEmail';
 
-const Stack = createStackNavigator<typeof Screens>();
-
-export const AuthEmailScreen = (props) => {
+export const AuthEmailScreen = () => {
 
     return (
-       <Text>texto</Text>
+       <AuthLayout>
+            <AuthFormEmail/>
+       </AuthLayout>
     )
 }

@@ -1,13 +1,11 @@
-import { createStackNavigator } from '@react-navigation/stack';
-import { Text } from 'react-native';
+import { AuthLayout } from '../../components/Auth';
+import { AuthFormForget } from '../../components/Auth/AuthFormForget';
 
-import { Screens } from ".."
-
-const Stack = createStackNavigator<typeof Screens>();
-
-export const AuthForgetScreen = (props) => {
+export const AuthForgetScreen = () => {
 
     return (
-        <Text>Email</Text>
-    )
+        <AuthLayout>
+            <AuthFormForget />
+        </AuthLayout>
+     )
 }
