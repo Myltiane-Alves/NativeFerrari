@@ -17,14 +17,14 @@ import { UserWrap } from './UserWrap';
 import { UserInfo } from './UserInfo';
 import { UserName } from './UserName';
 import { UserEmail } from './UserEmail';
-// import { useAuth } from '../../hooks/useAuth';
 import { UserPhoto } from './UserPhoto';
 import { getPhotoURL } from './getPhotoURL';
 import { Button } from '../Button';
-import Navigation from '../../navigation';
+import { useAuth } from '../../hooks/useAuth';
+
 
 export const DrawerCustom = (props) => {
-  const [isLogged, setIsLogged]   = useState();
+  const {user, isLogged, logout }   = useAuth();
 
   return (
     <DrawerContentScrollView
@@ -64,11 +64,11 @@ export const DrawerCustom = (props) => {
                 onPress={() => props.navigation.navigate(Screen.Home)}
                 labelStyle={styles.drawerItemLabel}
               />
-              {/* <DrawerItem
+              <DrawerItem
                 label="Editar Dados"
                 onPress={() => props.navigation.navigate(Screen.Profile)}
                 labelStyle={styles.drawerItemLabel}
-              /> */}
+              />
               <DrawerItem
                 label="Mudar Foto"
                 onPress={() => props.navigation.navigate(Screen.Services)}
@@ -84,8 +84,7 @@ export const DrawerCustom = (props) => {
         )}
       </ScrollView>
       <DrawerFooter>
-        {!isLogged && (
-          
+        {!isLogged && (      
           <Button 
             color="green" 
             style={{ width: 240}} 
@@ -95,13 +94,12 @@ export const DrawerCustom = (props) => {
         )} 
         {isLogged && (
           <UserWrap>
-
-            <Image source={photo}/>
+            <UserPhoto source={photo}/>
             <UserInfo>
               <UserName>Myltiane Alves</UserName>
               <UserEmail>myltiane.axu@gmail.com</UserEmail>
             </UserInfo>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => logout()}>
                 <MaterialIcons name="logout" size={24} color={vars.dark0} />
             </TouchableOpacity>
           </UserWrap>

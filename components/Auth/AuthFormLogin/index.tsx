@@ -1,3 +1,6 @@
+import {useState } from "react"
+import { useAuth } from "../../../hooks/useAuth"
+import { useDrawerNavigation } from "../../../hooks/useDrawerNavigation"
 import { Screen } from "../../../screens"
 import { vars } from "../../../values"
 import { Button } from "../../Button"
@@ -7,10 +10,12 @@ import { AuthFormFooter } from "../AuthFormFooter"
 import { AuthFormLoginWrap } from "../AuthFormLoginWrap"
 
 export const AuthFormLogin = () => {
-    
+    const navigation = useDrawerNavigation();
+    const { onSubmitLogin, email, setEmail, isLoading } = useAuth();
+    const [password, setPassword] = useState('');
+
     return (
         <AuthFormLoginWrap>
-
             <PageTitle title="Fazer login" />
             <InputField
                 label="E-mail"

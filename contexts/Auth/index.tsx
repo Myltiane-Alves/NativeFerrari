@@ -14,7 +14,7 @@ export const AuthContext = createContext<AuthContextType>({
     onSubmitRegister: () => {},
     setEmail: () => {},
     setNextScreen: () => {},
-    // isLoadingForget: false,
+    isLoadingForget: false,
     logout: () => {},
     setUser: () => {},
 });

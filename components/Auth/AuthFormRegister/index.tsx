@@ -9,10 +9,15 @@ import { InputField } from "../../InputField"
 import { PageTitle } from "../../PageTitle"
 import { AuthFormFooter } from "../AuthFormFooter"
 import { AuthFormRegisterWrap } from "../AuthFormRegisterWrap"
+import { useAuth } from "../../../hooks/useAuth";
 
 export const AuthFormRegister = () => {
     const navigation = useDrawerNavigation();
+    const { email, setEmail, onSubmitRegister, isLoading } = useAuth()
     const [birthAt, setBirthAt] = useState<Date | null>(null)
+    const [name, setName] = useState('')
+    const [password, setPassword] = useState('')
+    const [passwordConfirm, setPasswordConfirm] = useState('')
 
     const pickerBirthAt = useCallback(() => {
         DateTimePickerAndroid.open({
@@ -36,9 +41,15 @@ export const AuthFormRegister = () => {
                 inputProps={{
                     autoComplete: "email",
                     keyboardType:  "email-address",
+                    value: email,
+                    onChangeText: setEmail,
                 }}    
             />
-            <InputField label="Nome Completo" style={{ marginTop: vars.space }} />
+            <InputField 
+                label="Nome Completo"
+                style={{ marginTop: vars.space }} 
+                inputProps={{value: name, onChangeText: setName}}
+            />
             <InputField
                 label="Data de Nascimento" 
                 style={{ marginTop: vars.space }} 
@@ -62,6 +73,8 @@ export const AuthFormRegister = () => {
                 style={{ marginTop: vars.space }} 
                 inputProps={{
                     secureTextEntry: true,
+                    value: password,
+                    onChangeText: setPassword,
                 }}    
             />
             <InputField 
@@ -69,6 +82,8 @@ export const AuthFormRegister = () => {
                 style={{ marginTop: vars.space }} 
                 inputProps={{
                     secureTextEntry: true,
+                    value: passwordConfirm,
+                    onChangeText: setPasswordConfirm,
                 }}     
             />
             <AuthFormFooter>
@@ -77,7 +92,23 @@ export const AuthFormRegister = () => {
                     onPress={() => navigation.navigate(Screen.AuthLogin)}    
                 >
                     Já tem uma conta</Button>
-                <Button color="green">Cadastrar</Button>
+                <Button 
+                    color="green"
+                    loading={isLoading}
+                    disabled={isLoading}
+                    onPress={() => 
+                        onSubmitRegister({
+                            name,
+                            email,
+                            password,
+                            passwordConfirm,
+                            birthAt,
+                        })
+                    }
+
+                >
+                    Cadastrar
+                </Button>
             </AuthFormFooter>
         </AuthFormRegisterWrap>
 

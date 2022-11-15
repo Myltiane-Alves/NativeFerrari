@@ -10,7 +10,7 @@ export type AuthContextType = {
     onSubmitRegister: (data: FormDataRegisterType) => void;
     onSubmitLogin: (data: FormDataLoginType) => void;
     onSubmitForget: () => void;
-    // isLoadingForget: boolean;
+    isLoadingForget: boolean;
     isLoading: boolean;
     isLogged: boolean;
     token: string | null;
