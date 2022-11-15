@@ -8,7 +8,7 @@ import { AuthForgetMessage } from "../AuthForgetMessage"
 import { AuthForgetText } from "../AuthForgetText"
 import { AuthFormFooter } from "../AuthFormFooter"
 import { AuthFormForgetWrap } from "../AuthFormForgetWrap"
-import check from '../../../assets/checks.png'
+import check from '../../../assets/check.png'
 import { ActivityIndicator } from "react-native"
 import { vars } from "../../../values"
 import { useAuth } from "../../../hooks/useAuth"
