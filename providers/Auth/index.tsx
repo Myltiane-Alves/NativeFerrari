@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { format } from 'date-fns';
 import { useState, useCallback } from 'react';
-import { ToastAndroid } from 'react-native';
+import { useApp} from '../../hooks/useApp'; 
 import { AuthContext } from "../../contexts/Auth"
 import { FormDataRegisterType } from '../../contexts/Auth/FormDataRegisterType';
 import { useDrawerNavigation } from '../../hooks/useDrawerNavigation';
@@ -25,46 +25,16 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const [isLogged, setIsLogged] = useState(false)
     const [nextScreen, setNextScreen] = useState(Screen.ScheduleNew)
     const navigation = useDrawerNavigation();
-    // const { catchAxiosError, showToast } = useApp();
+    const { catchAxiosError, showToast } = useApp();
 
     const redirectToNextScreen = useCallback(() => {
         if(nextScreen) {
             navigation.navigate(nextScreen);
         }
     }, [nextScreen])
-    
 
-    const showToast = (message: string, duration = ToastAndroid.SHORT) => {
-        ToastAndroid.show(message, duration);
-    }
 
-    const unlogged = () => {
 
-    }
-
-    const catchAxiosError = (error: any) => {
-        if (error.response) {
-            switch (error.response.status) {
-                case 'Unauthorized':
-                    unlogged()
-                    break;
-                default:
-                    showToast(error.response.data.message ??
-                        error.response.data.error ?? error.response.data ??
-                        'Erro desconhecido'
-                    )
-
-            }
-        } else {
-            switch (error.message) {
-                case 'Jwr malformed':
-                    unlogged()
-                    break;
-                default:
-                    showToast(error.message ?? 'Erro desconhecido')
-            }
-        }
-    }
     const onSubmitEmail = useCallback(() => {
 
         setIsLoading(true)
@@ -98,7 +68,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
                 baseURL: vars.baseURL,
             })
             .then(({ data }) => {
-                setUser(data);
+                // setUser(data);
                 setToken(data.token);
                 setIsLogged(true);
             })
